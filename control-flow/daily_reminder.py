@@ -1,6 +1,6 @@
-task = input("input a task description : ")
-time_bound = input("task is time-bound (yes or no): ")
-priority = input(" task’s priority (high, medium, low): ")
+task = input("Enter your task: ")
+priority = input("Priority (high/medium/low): ")
+time_bound = input("Is it time-bound? (yes/no): ")
 
 match priority:
     case "high":
@@ -16,5 +16,5 @@ elif time_bound == "no":
     message += ". Consider completing it when you have free time."
 
 # Final reminder
-print("\n📌 Reminder:")
+print("Reminder:")
 print(message)
