@@ -8,11 +8,11 @@ class BankAccount:
             self.account_balance += amount
             print(self.account_balance)
         else:
-            print("Deposite amount must be greater than zero")
+            print("Deposit amount must be greater than zero")
 
     def withdraw(self, amount):
         if amount > self.account_balance:
-            print("You do not have up to that in your account balance")
+            print("Insufficient funds.")
             return False
         elif amount <= 0:
             print("Withdraw amount must be greater than zero")
