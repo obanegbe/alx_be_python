@@ -4,63 +4,41 @@ from simple_calculator import SimpleCalculator
 class TestSimpleCalculator(unittest.TestCase):
 
     def setUp(self):
-        """Initialize calculator before each test."""
+        """Create a calculator instance before each test."""
         self.calc = SimpleCalculator()
 
-    # ---- ADDITION TESTS ----
-    def test_addition_positive_numbers(self):
-        self.assertEqual(self.calc.add(3, 7), 10)
+    def test_addition(self):
+        self.assertEqual(self.calc.add(2, 3), 5)
+        self.assertEqual(self.calc.add(-1, -1), -2)
+        self.assertEqual(self.calc.add(-1, 1), 0)
+        self.assertEqual(self.calc.add(0, 0), 0)
+        self.assertEqual(self.calc.add(1.5, 2.5), 4.0)
 
-    def test_addition_negative_numbers(self):
-        self.assertEqual(self.calc.add(-2, -5), -7)
+    def test_subtraction(self):
+        self.assertEqual(self.calc.subtract(5, 3), 2)
+        self.assertEqual(self.calc.subtract(3, 5), -2)
+        self.assertEqual(self.calc.subtract(0, 0), 0)
+        self.assertEqual(self.calc.subtract(-3, -3), 0)
+        self.assertEqual(self.calc.subtract(2.5, 1.0), 1.5)
 
-    def test_addition_mixed_signs(self):
-        self.assertEqual(self.calc.add(-4, 10), 6)
-
-    def test_addition_zero(self):
-        self.assertEqual(self.calc.add(0, 5), 5)
-
-    # ---- SUBTRACTION TESTS ----
-    def test_subtraction_positive_numbers(self):
-        self.assertEqual(self.calc.subtract(10, 3), 7)
-
-    def test_subtraction_negative_numbers(self):
-        self.assertEqual(self.calc.subtract(-4, -6), 2)
-
-    def test_subtraction_mixed_signs(self):
-        self.assertEqual(self.calc.subtract(-4, 3), -7)
-
-    def test_subtraction_zero(self):
-        self.assertEqual(self.calc.subtract(5, 0), 5)
-
-    # ---- MULTIPLICATION TESTS ----
-    def test_multiplication_positive_numbers(self):
+    def test_multiplication(self):
         self.assertEqual(self.calc.multiply(3, 4), 12)
+        self.assertEqual(self.calc.multiply(-2, 5), -10)
+        self.assertEqual(self.calc.multiply(0, 1000), 0)
+        self.assertEqual(self.calc.multiply(-3, -3), 9)
+        self.assertEqual(self.calc.multiply(1.5, 2), 3.0)
 
-    def test_multiplication_negative_numbers(self):
-        self.assertEqual(self.calc.multiply(-2, -3), 6)
-
-    def test_multiplication_mixed_signs(self):
-        self.assertEqual(self.calc.multiply(-2, 4), -8)
-
-    def test_multiplication_by_zero(self):
-        self.assertEqual(self.calc.multiply(100, 0), 0)
-
-    # ---- DIVISION TESTS ----
-    def test_division_positive_numbers(self):
+    def test_division(self):
         self.assertEqual(self.calc.divide(10, 2), 5)
-
-    def test_division_negative_numbers(self):
-        self.assertEqual(self.calc.divide(-9, -3), 3)
-
-    def test_division_mixed_signs(self):
-        self.assertEqual(self.calc.divide(-8, 2), -4)
-
-    def test_division_result_float(self):
-        self.assertEqual(self.calc.divide(7, 2), 3.5)
+        self.assertEqual(self.calc.divide(3, 2), 1.5)
+        self.assertEqual(self.calc.divide(-6, 2), -3)
+        self.assertEqual(self.calc.divide(0, 3), 0)
+        self.assertIsNone(self.calc.divide(5, 0))  # Division by zero
 
     def test_division_by_zero(self):
-        self.assertIsNone(self.calc.divide(5, 0))
+        self.assertIsNone(self.calc.divide(100, 0))
+        self.assertIsNone(self.calc.divide(0, 0))  # Still division by zero
 
 if __name__ == '__main__':
     unittest.main()
+["test_addition", "test_addition(self)"]
