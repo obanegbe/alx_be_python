@@ -10,9 +10,9 @@ class BankAccount:
     def withdraw(self, amount):
         if amount > self.account_balance:
             return False
-        elif amount < self.account_balance:
+        elif amount <= self.account_balance:
             self.account_balance -= amount
             return True
 
     def display_balance(self):
-        print(f"Current Balance: ${self.account_balance}")
+        print(f"Current Balance: ${self.account_balance.2F}")
