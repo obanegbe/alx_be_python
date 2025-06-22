@@ -26,3 +26,18 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+
+
+
+
+if len(sys.argv) < 2:
+    print("Usage: py main.py <command>:<argument>")
+    print("Commands: deposit, withdraw, display")
+    sys.exit(1)
+
+
+command *params = (sys.argv)[1].split(":")
+amount = float(param[0]) if param else None
+
+
